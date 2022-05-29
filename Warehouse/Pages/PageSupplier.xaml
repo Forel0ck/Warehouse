@@ -1,0 +1,194 @@
+﻿<Page x:Class="Warehouse.Pages.PageSupplier"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Warehouse.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageSupplier">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            
+            VerticalAlignment="Bottom" 
+            Margin="9 10"
+            >
+                <TextBlock
+                Text="Поиск :"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                />
+                <TextBox
+                x:Name="tbSearch"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                Width="150"
+                Margin="10 0" 
+                    TextChanged="tbSearch_TextChanged" 
+                />
+                <TextBlock
+                Text="Сортировка по :"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                />
+                <ComboBox
+                x:Name="cmbSort"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                Width="250"
+                Margin="10 0"
+                Background="#FFDDDDDD" 
+                BorderBrush="{x:Null}" SelectionChanged="cmbSort_SelectionChanged" 
+                />
+
+            </WrapPanel>
+            <ListView
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                x:Name="lvSupplier"
+                Background="Transparent"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                KeyUp="lvSupplier_KeyUp" 
+            >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                BorderBrush="DarkGray"
+                BorderThickness="2"
+                CornerRadius="10"
+                Width="880"
+                Height="100"
+                Margin="10" Background="#FF759CD8">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- 1 -->
+                                <TextBlock Text="Название :"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 7 0"
+                           FontSize="20"/>
+
+                                <TextBlock Text="Адрес:"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 7 0"
+                           FontSize="20"/>
+
+                                <TextBlock Text="Телефон:"
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 7 0"
+                           FontSize="20"/>
+
+                                <!-- 2 -->
+
+                                <TextBlock Text="{Binding Path=Title}"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="20"/>
+
+                                <TextBlock Text="{Binding Path=Address}"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="20"/>
+
+                                <TextBlock Text="{Binding Path=Phone}"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 0 0"
+                           FontSize="20"/>
+
+
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+        </ListView>
+        <WrapPanel
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            >
+            <Button
+                x:Name="AddSup"
+                Content="Добавить поставщика"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                Background="#FF759CD8" 
+                BorderBrush="{x:Null}"
+                Margin="5"
+                Click="AddSup_Click"
+            />
+            <Button
+                x:Name="AddChange"
+                Content="Редактировать поставщика"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                Background="#FF759CD8" 
+                BorderBrush="{x:Null}"
+                Margin="5"
+                Click="AddChange_Click" 
+            />
+            <Button
+                x:Name="DeletSup"
+                Content="Удалить поставщика"
+                FontSize="30"
+                FontFamily="Bahnschrift Condensed"
+                Background="#FF759CD8" 
+                BorderBrush="{x:Null}"
+                Margin="5"
+                Click="DeletSup_Click"
+            />
+        </WrapPanel>
+    </Grid>
+</Page>

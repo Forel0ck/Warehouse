@@ -1,0 +1,73 @@
+﻿<Window x:Class="Warehouse.Windows.InfoShipmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse.Windows"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Автомобильный склад" Height="450" Width="600">
+    <Grid
+        Background="#FF9CB9D1">
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+                x:Name="tbShipment"
+                FontSize="30"
+                Margin="10 "
+                FontFamily="Bahnschrift Condensed"
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+            />
+        <TextBlock
+                x:Name="tbDate"
+                FontSize="20"
+                FontFamily="Bahnschrift Condensed"
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="10"
+            
+            />
+        <ListView
+            Grid.Row="2"
+             x:Name="lvPart" 
+            >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Path=Autopart.Title}"></GridViewColumn>
+                        <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Path=Qty}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Button
+                x:Name="btClose"
+                Content="Выйти"
+                FontFamily="Bahnschrift Condensed"
+                FontSize="20"
+                Width="90"
+                Background="#FF759CD8" 
+                BorderBrush="{x:Null}" 
+                Margin="75 0"
+                Click="btClose_Click"     
+                Grid.Row="3"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+        />
+
+    </Grid>
+</Window>
